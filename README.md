@@ -1,3 +1,7 @@
+### weather-app
+
+React weather application worked on react using Open Weather API.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
