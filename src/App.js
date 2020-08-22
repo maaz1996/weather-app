@@ -9,12 +9,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {};
+    this.getWeather();
   }
   getWeather = async () => {
     const api_call = await fetch(
-      `api.openweathermap.org/data/2.5/weather?q=London&appid=${API_key}`
+      `http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_key}`
     );
-    console.log("api_call");
+
     const response = await api_call.json();
     console.log(response);
   };
