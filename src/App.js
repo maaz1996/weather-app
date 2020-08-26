@@ -20,6 +20,9 @@ class App extends React.Component {
       error: false,
     };
     this.getWeather();
+    this.weatherIcon = {
+      Thunderstorm: "wi-thunderstorm",
+    };
   }
 
   getCelsius(temp) {
@@ -40,6 +43,7 @@ class App extends React.Component {
       temp_max: this.getCelsius(response.main.temp_max),
       temp_min: this.getCelsius(response.main.temp_min),
       description: response.weather[0].description,
+      icon: this.weatherIcon.Thunderstorm,
     });
   };
 
@@ -53,6 +57,7 @@ class App extends React.Component {
           temp_max={this.state.temp_max}
           temp_min={this.state.temp_min}
           description={this.state.description}
+          weatherIcon={this.state.icon}
         />
       </div>
     );
