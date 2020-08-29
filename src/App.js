@@ -73,15 +73,19 @@ class App extends React.Component {
       );
       const response = await api_call.json();
       console.log(response);
-      this.setState({
-        city: `${response.name}, ${response.sys.country}`,
-        celsius: this.getCelsius(response.main.temp),
-        temp_max: this.getCelsius(response.main.temp_max),
-        temp_min: this.getCelsius(response.main.temp_min),
-        description: response.weather[0].description,
-        error: false,
-      });
-      this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+      if (response.message === "city not found") {
+        this.setState({ error: true });
+      } else {
+        this.setState({
+          city: `${response.name}, ${response.sys.country}`,
+          celsius: this.getCelsius(response.main.temp),
+          temp_max: this.getCelsius(response.main.temp_max),
+          temp_min: this.getCelsius(response.main.temp_min),
+          description: response.weather[0].description,
+          error: false,
+        });
+        this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+      }
     } else {
       this.setState({ error: true });
     }
