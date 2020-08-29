@@ -79,6 +79,7 @@ class App extends React.Component {
         temp_max: this.getCelsius(response.main.temp_max),
         temp_min: this.getCelsius(response.main.temp_min),
         description: response.weather[0].description,
+        error: false,
       });
       this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
     } else {
